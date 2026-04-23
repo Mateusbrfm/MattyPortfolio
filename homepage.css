@@ -26,10 +26,14 @@ h2 {
     text-align: center;
     
 }
+/* --- Header --- */
+
 header {
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 1rem;
     margin-bottom: 4rem; 
+    display: flex;
+    justify-content: space-between;
 }
 .header-socials {
     display: flex;
@@ -51,7 +55,43 @@ header {
 .social-link i {
     display: block;
 }
+.lang-toggle {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: var(--input-bg);
+    border: 1px solid #444;
+    color: var(--text-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px; 
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.lang-toggle:hover {
+    border-color: var(--accent-color); 
+    color: var(--accent-color);
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 122, 204, 0.2); 
+    
+}
+
+
+@media (max-width: 768px) {
+    .lang-toggle {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 2rem;
+        display: block;
+        margin-left: auto;
+    }
+}
 /* --- Hero Section --- */
 
 #hero {
@@ -188,19 +228,64 @@ header {
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid #333;
-    border-left: 3px solid var(--accent-color); 
+    border-left: 3px solid #005999; 
+}
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .skill-card h3 {
     color: var(--text-color);
     margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1.65rem;
 }
 
 .skill-card p {
     color: #ececec;
-    font-size: 1.05rem;
+    font-size: 1.35rem;
 }
+.accomplishments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px dashed #333;
+    padding-top: 2rem;
+    width: 100%;
+}
+.accomplishment-card {
+    background-color: var(--input-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    border-left: 3px solid var(--accent-color);
+    
+}
+.accomplishment-card h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.accomplishment-card p {
+    color: #cacaca;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+.accomplishment-card:hover{
+    transform: translateY(-5px);
+}
+.accomplishment-image {
+    max-width: 120px;
+    height: auto;
+    border-radius: 4px;
+    margin-top: auto;
+    width: 100%;
+    padding: 0.5rem;
+}
+
 /* --- Projects Section --- */
 #projects {
     display: flex;
@@ -270,14 +355,13 @@ header {
 }
 
 .project-logo {
-    max-height: 40px; /* Garante que os logos fiquem num tamanho padronizado */
+    max-height: 40px; 
     min-height: 40px;
     max-width: 50px;
     border-radius: 4px;
     object-fit: cover;
 }
 
-/* Textos e Imagens dentro do Cartão */
 .project-content p {
     color: #cccccc;
     font-size: 1.1rem;
@@ -287,7 +371,7 @@ header {
 
 .project-screenshot {
     width: 100%;
-    max-height: 400px; /* Impede que prints gigantes quebrem a tela */
+    max-height: 400px; 
     object-fit: cover;
     border-radius: 6px;
     margin: 1rem 0;
@@ -325,7 +409,7 @@ header {
     align-items: center; 
     justify-content: center;
     width: 100%;
-    margin-top: 4rem; 
+    margin-top: 4rem auto; 
 }
 
 #contact h2 {
@@ -344,6 +428,7 @@ header {
     gap: 1.5rem; 
     width: 100%;
     max-width: 500px;
+    margin: 0 auto;
     text-align: left; 
 }
 
@@ -365,23 +450,128 @@ textarea {
 }
 
 /* --- Contact Form Button --- */
-button {
+#contact-form button {
     padding: 1rem;
     background-color: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+    border-radius: 6px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
 }
 
-button:hover {
+#contact-form button:hover {
     background-color: #005999;
+    transform: translateY(-2px); 
 }
-
 button:disabled {
     background-color: #555;
     cursor: not-allowed;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #333; 
+    margin-top: 2rem;
+    width: 100%;
+}
+
+
+
+/* --- Scroll Progress Bar --- */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; 
+    background: transparent;
+    z-index: 1000; 
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--accent-color); 
+    width: 0%; /* js stuff */
+    border-radius: 0 2px 2px 0;
+}
+/* --- Fade In Animation --- */
+.hidden-section {
+    opacity: 0;
+    transform: translateY(30px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show-section {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+
+/* mobile responsiveness */
+
+@media (max-width: 768px) {
+  
+    body {
+        padding: 1rem;
+    }
+
+  
+    #hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    #hero .hero-buttons{
+        flex-direction: column;
+        gap: 0.8rem;
+
+    }
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 2rem;
+    }
+
+    .skills-grid, 
+    .accomplishments-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .project-header h3 {
+        font-size: 1.4rem;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+
+    #contact-form {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .lang-toggle {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 0 auto 2rem auto;
+        display: table; 
+    }
 }
