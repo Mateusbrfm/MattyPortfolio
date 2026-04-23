@@ -33,22 +33,21 @@ header {
 }
 .header-socials {
     display: flex;
-    gap: 2rem; /* Aumentamos um pouco o espaço para os ícones "respirarem" */
+    gap: 2rem; 
 }
 
 .social-link {
     color: var(--text-color);
-    font-size: 1.8rem; /* Tamanho confortável para ícones de cabeçalho */
+    font-size: 1.8rem; 
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-link:hover {
     color: var(--accent-color);
-    transform: translateY(-3px); /* Pequena animação de "salto" ao passar o rato */
-}
+    transform: translateY(-3px); 
 
-/* Garante que o ícone interno (i) herde o comportamento */
+}
 .social-link i {
     display: block;
 }
@@ -94,7 +93,7 @@ header {
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 4px;
-    text-decoration: none; /* Tira o sublinhado do link */
+    text-decoration: none; 
     transition: all 0.3s ease;
 }
 
@@ -116,7 +115,7 @@ header {
 }
 
 .btn-outline:hover {
-    background-color: rgba(0, 122, 204, 0.1); /* Um azul super transparente no fundo */
+    background-color: rgba(0, 122, 204, 0.1); 
 }
 
 /* --- About Section --- */
@@ -226,11 +225,11 @@ header {
 .projects-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem; /* Espaço entre o Projeto 1 e o Projeto 2 */
+    gap: 3rem; 
     width: 100%;
-    max-width: 850px; /* Mantém a mesma simetria do About Me */
+    max-width: 850px; 
 }
-/* O link do projeto, que fica na note do cartão */
+
 .project-link{
     display: inline-block;
     color: var(--accent-color);
@@ -240,22 +239,22 @@ header {
     transition: color 0.2s;
 }
 
-/* O Cartão de cada projeto */
+
 .project-card {
     background-color: var(--input-bg);
     border: 1px solid #333;
     border-radius: 8px;
     padding: 2rem;
-    border-left: 4px solid var(--accent-color); /* Detalhe visual na lateral */
+    border-left: 4px solid var(--accent-color); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px); /* Efeito sutil de levantar ao passar o mouse */
+    transform: translateY(-5px); 
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* Cabeçalho do Cartão (Título + Logo) */
+
 .project-header {
     display: flex;
     align-items: center;
@@ -272,7 +271,10 @@ header {
 
 .project-logo {
     max-height: 40px; /* Garante que os logos fiquem num tamanho padronizado */
+    min-height: 40px;
+    max-width: 50px;
     border-radius: 4px;
+    object-fit: cover;
 }
 
 /* Textos e Imagens dentro do Cartão */
